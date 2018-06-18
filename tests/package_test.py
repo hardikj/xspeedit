@@ -27,7 +27,7 @@ class TestPackage(unittest.TestCase):
   def test_remove(self):
     self.pkg.add(2)
     self.pkg.add(1)
-    self.pkg.remove(1)
+    self.pkg.remove([1])
     self.assertEqual(len(self.pkg.items), 1)
 
 if __name__ == '__main__':
