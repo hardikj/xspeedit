@@ -1,17 +1,17 @@
-from package import Package
+from package import Package, NotEnoughSpace
 
-class packer(object):
+class Packer(object):
 
   def __init__(self, capacity):
-    this.packageCapacity = capacity
-    this.packages = []
+    self.packageCapacity = capacity
+    self.packages = []
 
   def someotherStrategyPacking():
     pass
 
-  def sortedPacking(self, items):
+  def sortedPack(self, items):
 
-    if not itemss:
+    if not items:
       return []
   
     # sort and reverse items
@@ -19,7 +19,6 @@ class packer(object):
     items = items[::-1]
     print items
 
-    limit = 10
     # Process items
     for item in items:
       stored = False
@@ -29,9 +28,10 @@ class packer(object):
           package.add(int(item))
           stored = True
           break
-        except e:
-          # Throw Better ERror
-          raise e
+        except (NotEnoughSpace):
+          pass
+        else:
+          raise RuntimeError("Something went wrong while processing the packages") 
 
       # first package in the chain
       if not stored:
@@ -40,5 +40,8 @@ class packer(object):
         pkg.add(int(item))
         self.packages.append(pkg)
 
-    print packages
-    return packages
+    print [ p.items for p in self.packages ]
+    return self.packages
+
+  def clear(self):
+    self.packages = []
