@@ -1,8 +1,0 @@
-setup.py
-xspeedit/__init__.py
-xspeedit/package.py
-xspeedit/packer.py
-xspeedit.egg-info/PKG-INFO
-xspeedit.egg-info/SOURCES.txt
-xspeedit.egg-info/dependency_links.txt
-xspeedit.egg-info/top_level.txt
